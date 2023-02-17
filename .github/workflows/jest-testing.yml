@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  Jest Workflow:
+  Jest-Workflow:
     runs-on: [ ubuntu-latest ]
     steps:
       - name: Checkout
