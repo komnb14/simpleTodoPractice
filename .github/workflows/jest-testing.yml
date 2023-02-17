@@ -24,11 +24,7 @@ jobs:
         run: npm run test:git
 
       - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()    # run this step even if previous step failed
+      - uses: IgnusG/jest-report-action@v{ current version }
+        if: always() # Or use "continue-on-error: true" in previous test step
         with:
-          name: test-results
-          path: junit.xml
-          fail-on-error: 'false'
-          reporter: jest-junit        # Format of test results
-          token: ${{ secrets.GITHUB_TOKEN }}
+          access-token: ${{ secrets.GITHUB_TOKEN }}
