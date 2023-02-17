@@ -11,6 +11,6 @@ describe('Todo', function () {
                 </Todo.List>
             </div>);
         const item = screen.getByRole('button');
-        expect(item).toHaveTextContent('{"id":0,"description":"Hello","title":"타이틀"}');
+        expect(item).toHaveTextContent('fail');
     })
 });
