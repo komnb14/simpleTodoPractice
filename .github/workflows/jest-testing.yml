@@ -21,7 +21,7 @@ jobs:
         run: npm i
 
       - name: Run Test
-        run: npm run test
+        run: npm run test:git
 
       - name: Test Report
         uses: dorny/test-reporter@v1
