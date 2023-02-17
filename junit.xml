@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="1" errors="0" time="1.644">
+  <testsuite name="Todo" errors="0" failures="1" skipped="0" timestamp="2023-02-17T13:03:32" time="0.911" tests="1">
+    <testcase classname="Todo renderList" name="Todo renderList" time="0.051">
+      <failure>Error: expect(element).toHaveTextContent()
+
+Expected element to have text content:
+  adddddsd
+Received:
+  {&quot;id&quot;:0,&quot;description&quot;:&quot;Hello&quot;,&quot;title&quot;:&quot;타이틀&quot;}
+    at Object.&lt;anonymous&gt; (D:\toy\gachi\my-app\src\common\compound\Todo.test.tsx:14:22)
+    at Promise.then.completed (D:\toy\gachi\my-app\node_modules\jest-circus\build\utils.js:293:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (D:\toy\gachi\my-app\node_modules\jest-circus\build\utils.js:226:10)
+    at _callCircusTest (D:\toy\gachi\my-app\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async _runTest (D:\toy\gachi\my-app\node_modules\jest-circus\build\run.js:184:3)
+    at async _runTestsForDescribeBlock (D:\toy\gachi\my-app\node_modules\jest-circus\build\run.js:86:9)
+    at async _runTestsForDescribeBlock (D:\toy\gachi\my-app\node_modules\jest-circus\build\run.js:81:9)
+    at async run (D:\toy\gachi\my-app\node_modules\jest-circus\build\run.js:26:3)
+    at async runAndTransformResultsToJestFormat (D:\toy\gachi\my-app\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at async jestAdapter (D:\toy\gachi\my-app\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at async runTestInternal (D:\toy\gachi\my-app\node_modules\jest-runner\build\runTest.js:367:16)
+    at async runTest (D:\toy\gachi\my-app\node_modules\jest-runner\build\runTest.js:444:34)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
