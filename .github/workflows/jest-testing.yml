@@ -5,6 +5,7 @@ on:
       - main
 
 jobs:
+  Run Jest:
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
