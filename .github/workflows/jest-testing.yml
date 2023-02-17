@@ -6,14 +6,14 @@ on:
 
 jobs:
   checkout:
-    runs-on: [ubuntu-latest]
+    runs-on: [ ubuntu-latest ]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: install node
         uses: actions/setup-node@v2
-        with :
+        with:
           node-version: '16'
           cache: 'npm'
 
@@ -22,6 +22,10 @@ jobs:
 
       - name: Run Test
         run: npm run test:git
+
+      - name: Create Test Report
+        if: always()
+        run: npm run test:report
 
       - name: Test Report
         uses: IgnusG/jest-report-action@v2.3.3
