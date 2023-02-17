@@ -32,6 +32,3 @@ jobs:
         if: always()
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: TestMain
-        uses: ArtiomTr/jest-coverage-report-action@v2
