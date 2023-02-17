@@ -23,11 +23,9 @@ jobs:
       - name: Run Test
         run: npm run test:git
 
-      - name: Create Test Report
-        run: npm run test:report
-
       - name: Test Report
         uses: IgnusG/jest-report-action@v2.3.3
         if: always()
+        run: npm run test:report
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
