@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Index from "@/domains/index";
+import {Index} from "@/domains/domains";
 
 export default function Home() {
 
