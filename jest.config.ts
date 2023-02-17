@@ -13,7 +13,6 @@ const customJestConfig = {
         '@/(.*)$': '<rootDir>/src/$1',
     },
     testEnvironment: 'jest-environment-jsdom',
-    "reporters": [ "default", "jest-junit" ]
 }
 
 
