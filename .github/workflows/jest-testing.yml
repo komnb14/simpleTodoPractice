@@ -25,6 +25,6 @@ jobs:
 
       - name: Test Report
         uses: IgnusG/jest-report-action@v2.3.3
-        if: always() # Or use "continue-on-error: true" in previous test step
+        if: always()
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
