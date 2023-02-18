@@ -4,55 +4,43 @@ import todoStore, {todoItem} from "@/lib/store/zustard";
 import headlessChildrenChecker from "@/lib/functions/headlessChildrenChecker";
 
 
+export type TodoItem = {
+    id: number;
+    title: string;
+    description: string;
+  };
+  
 
-export type TodoItemProps = {
-    todo : Todo;
+export interface State {
+   
+    removeItem(item: TodoItem): void;
+
 }
+  
 
-function TodoItem({ todo } : TodoItemProps){
-    const dispatch = useTodosDispatch();
 
-    const onToggle = () => {
-        dispatch({
-            type: '',
-            id: todo.id, 
-            title: todo.title, 
-            description: todo.description
-        });
-    };
-
-    const onRemove = () => {
-        dispatch({
-            type: 'REMOVE',
-            id: todo.id,
-            title: todo.title, 
-            description: todo.description
-
-        });
-    };
-
-    return(
-        <div className = "todoItem">
-            <Todo 
-                todo = {todo}                
-            />  
-            
-            
-        <button    
-
-            aria-label='Remove'
-            // className={styles.inputTaskRemove}
-            onClick={() => {
-              if (confirm("Are you sure?")) {
-                onRemoved(id);
-              }  
-            }}
-
-         />
-
-          
-        </div>
+export const useStore = create<State>(
+    persist(
+        devtools(
+        (set) => ({
+            items: [],
+            hideCompleted: false,
+            removeItem: (item: TodoItem) => set((state) => ({ items: state.items.filter((it) => it.id !== item.id) }), 
+            false, 'REMOVE_ITEM'),
+            toggleItem: (item: TodoItem) =>
+            set(
+                (state) => ({
+                items: state.items.map((it) => ({ ...it, done: it.id === item.id ? !item.done : it.done }))
+                }),
+                false,
+                'TOGGLE_ITEM'
+            ),
+            toggleHideCompleted: () => set((state) => ({ hideCompleted: !state.hideCompleted }), false, 'TOGGLE_HIDE_COMPLETED'),
+            removeCompleted: () => set((state) => ({ items: state.items.filter((it) => !it.done) }), false, 'REMOVE_COMPLETED')
+        }),
+        'TodoStore'
+        ),
+        { name: 'todolist' }
+    )
     );
-}
-
-export default TodoItem;
+      
