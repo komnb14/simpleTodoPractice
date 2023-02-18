@@ -8,10 +8,21 @@ export interface todoItem {
 
 interface bear {
     todo: todoItem[];
+    onClickDelete: (id: number) => void
 }
 
 const todoStore = create<bear>((set) => ({
     todo: [{id: 0, description: "Hello", title: "타이틀"}],
+    onClickDelete: (id) => {
+        set((state) => {
+            const copyTodo = [...state.todo];
+            const filterItem = copyTodo.filter((data) => data.id !== id);
+            return {
+                ...state,
+                todo: filterItem,
+            }
+        })
+    }
 }))
 
 
