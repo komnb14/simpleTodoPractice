@@ -1,18 +1,20 @@
-import {create} from "zustand";
+import { create } from 'zustand';
 
 export interface todoItem {
-    id: number;
-    title: string;
-    description: string;
+  id: number | Date;
+  title: string;
+  description: string;
 }
 
 interface bear {
-    todo: todoItem[];
+  todo: todoItem[];
+  addTodo: (item: todoItem) => void;
 }
 
 const todoStore = create<bear>((set) => ({
-    todo: [{id: 0, description: "Hello", title: "타이틀"}],
-}))
+  todo: [{ id: 0, description: 'Hello', title: '타이틀' }],
+  addTodo: (item: todoItem) =>
+    set((state: bear) => ({ todo: [...state.todo, item] })),
+}));
 
-
-export default todoStore
+export default todoStore;
