@@ -1,23 +1,13 @@
 import React from 'react';
 import Todo from "@/common/compound/Todo";
+import IndexTodoList from "@/domains/index/components/IndexTodoList";
 
 const Index = () => {
     return (
         <div>
             <Todo>
                 <ul>
-                    <Todo.List>
-                        {(todo) => todo.map((data) => {
-                            return (<li key={data.id}>
-                                <Todo.Title>
-                                    {data.title}
-                                </Todo.Title>
-                                <Todo.Description>
-                                    {data.description}
-                                </Todo.Description>
-                            </li>)
-                        })}
-                    </Todo.List>
+                    <IndexTodoList/>
                 </ul>
             </Todo>
         </div>
