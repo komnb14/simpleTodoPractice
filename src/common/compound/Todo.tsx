@@ -26,9 +26,16 @@ const Description = ({children}: { children: string }) => {
     return <p>{children}</p>
 }
 
+const DeleteButton = ({children, id}: { children: JSX.Element, id: number }) => {
+    const {onClickDelete} = todoStore();
+
+    return (<button onClick={() => onClickDelete(id)}></button>)
+}
+
 
 Todo.List = List;
 Todo.Title = Title;
 Todo.Description = Description
+Todo.DeleteButton = DeleteButton;
 
 export default Todo;

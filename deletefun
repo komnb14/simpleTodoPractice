@@ -1,0 +1,58 @@
+import React, {type ReactNode} from 'react';
+import Todo from './todo'
+import todoStore, {todoItem} from "@/lib/store/zustard";
+import headlessChildrenChecker from "@/lib/functions/headlessChildrenChecker";
+
+
+
+export type TodoItemProps = {
+    todo : Todo;
+}
+
+function TodoItem({ todo } : TodoItemProps){
+    const dispatch = useTodosDispatch();
+
+    const onToggle = () => {
+        dispatch({
+            type: '',
+            id: todo.id, 
+            title: todo.title, 
+            description: todo.description
+        });
+    };
+
+    const onRemove = () => {
+        dispatch({
+            type: 'REMOVE',
+            id: todo.id,
+            title: todo.title, 
+            description: todo.description
+
+        });
+    };
+
+    return(
+        <div className = "todoItem">
+            <Todo 
+                todo = {todo}                
+            />  
+            
+            
+        <button    
+
+            aria-label='Remove'
+            // className={styles.inputTaskRemove}
+            onClick={() => {
+              if (confirm("Are you sure?")) {
+                onRemoved(id);
+              }  
+            }}
+
+         />
+
+          
+        </div>
+    );
+}
+
+export default TodoItem;
